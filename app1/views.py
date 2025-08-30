@@ -13,18 +13,20 @@ def submit_contact(request):
 
         print(name,email,message)
 
-    if email:
-        email=email.strip().lower()
+        if email:
+            email=email.strip().lower()
     
-    contact=Contact(
-        name=name,
-        email=email,
-        message=message
-    )
+        contact=Contact(
+            name=name,
+            email=email,
+            message=message
+        )
 
-    contact.save()
+        contact.save()
 
+        return redirect('contact')
     return render(request,'index.html')
+
 
 
 # Create your views here.
